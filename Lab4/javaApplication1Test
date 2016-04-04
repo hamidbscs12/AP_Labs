@@ -1,0 +1,84 @@
+package javaapplication1;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import javaapplication1.matrixMultiply;
+import org.junit.Assert;
+
+public class JavaApplication1Test {
+    
+    public JavaApplication1Test() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+    public void testmult(){
+    int matrix1[][] = new int[2][2];
+    matrix1[0][0] = 1;
+    matrix1[0][1] = 1;
+    matrix1[1][0] = 1;
+    matrix1[1][1] = 1;
+
+    
+        int matrix2[][] = new int[2][2];
+    matrix2[0][0] = 1;
+    matrix2[0][1] = 1;
+    matrix2[1][0] = 1;
+    matrix2[1][1] = 1;
+
+    matrixMultiply matrixMultiplier = new matrixMultiply();
+    
+    int C [][]=  matrixMultiplier.Multiply(matrix1, matrix2, 2);
+    Assert.assertArrayEquals(C, matrix1);
+    }
+    public void testmultStrassen(){
+    int matrix1[][] = new int[2][2];
+    matrix1[0][0] = 1;
+    matrix1[0][1] = 1;
+    matrix1[1][0] = 1;
+    matrix1[1][1] = 1;
+
+    
+        int matrix2[][] = new int[2][2];
+    matrix2[0][0] = 1;
+    matrix2[0][1] = 1;
+    matrix2[1][0] = 1;
+    matrix2[1][1] = 1;
+
+    matrixMultiply matrixMultiplier = new matrixMultiply();
+    
+    int C [][]=  matrixMultiplier.StrassenMultiply(matrix1, matrix2);
+    Assert.assertArrayEquals(C, matrix1);
+    }
+
+    /*
+     Test of main method,class JavaApplication1.
+     */
+    @Test
+    public void testMain() {
+        System.out.println("main");
+        String[] args = null;
+        JavaApplication1.main(args);
+        testmult();
+        testmultStrassen();
+        fail("The test case is a prototype.");
+    }
+    
+}
